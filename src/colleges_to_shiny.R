@@ -1,0 +1,128 @@
+# This file serves to convert the tidied `colleges_mrc` to a "prettied"
+# colleges_shiny. The thought is that all column names and observations in this
+# new dataset won't require renaming before being outputted to the UI.
+
+# Load in the source dataset
+load("data/colleges_mrc.Rda")
+
+# Rename column values
+# note that now any proportion or percentage column is ranged from 0% to 100%
+# Make column names frontend-friendly
+colleges_shiny <- colleges_mrc %>%
+  mutate(state = as.factor(state),
+         highest_degree = as.factor(ifelse(highest_degree %in% c("1", "2", "3", "4"),
+                                 "Lower than Bachelor's",
+                                 ifelse(highest_degree %in% c("5", "6"),
+                                        "Bachelor's or Post baccalaureate",
+                                        ifelse(highest_degree %in% c("7", "8"),
+                                               "Master's or Post master's",
+                                               ifelse(highest_degree %in% "9",
+                                                      "Doctorate", NA))))),
+         urban = as.factor(ifelse(urban %in% c("11", "12", "13"),
+                        "City",
+                        ifelse(urban %in% c("21", "22", "23"),
+                               "Suburb",
+                               ifelse(urban %in% c("31", "32", "33"),
+                                      "Town", "Rural Area")))),
+         school_size = as.factor(ifelse(school_size == 1,
+                              "Under 1,000",
+                              ifelse(school_size == 2,
+                                     "1,000 - 4,999",
+                                     ifelse(school_size == 3,
+                                            "5,000 - 9,999",
+                                            ifelse(school_size == 4,
+                                                   "10,000 - 19,999",
+                                                   ifelse(school_size == 5,
+                                                          "20,000 and above",
+                                                          NA)))))),
+         rel_affil = as.factor(ifelse(rel_affil == 1, "Yes",
+                            ifelse(rel_affil == 0, "No", NA))),
+         NCAA_member = as.factor(ifelse(NCAA_member == TRUE, "Yes",
+                              ifelse(NCAA_member == FALSE, "No", NA))),
+         gr_prop_male = 100*gr_prop_male,
+         gr_prop_fem = ifelse(gr_prop_fem <= 100, 100*gr_prop_fem, NA),
+         prop_admit = round(ifelse(prop_admit <= 1, 100*prop_admit, NA), 2),
+         control = as.factor(ifelse(control == 1,
+                          "Public",
+                          ifelse(control == 2,
+                                 "Private not-for-profit",
+                                 ifelse(control == 3,
+                                        "Private for-profit", NA)))),
+         carnegie = as.factor(ifelse(carnegie %in% c("15", "16", "21", "22"),
+                           "Universities",
+                           ifelse(carnegie == "31",
+                                  "Liberal arts",
+                                  ifelse(carnegie %in% c("32", "33", "40"),
+                                         "Baccalaureate/Associates",
+                                         "Specialized")))),
+         prop_female = 100*prop_female,
+         prop_native = 100*prop_native,
+         prop_asian = 100*prop_asian,
+         prop_black = 100*prop_black,
+         prop_hispanic = 100*prop_hispanic,
+         prop_pacific = 100*prop_pacific,
+         prop_mixed = 100*prop_mixed,
+         prop_white = 100*prop_white,
+         mr_kq5_pq1 = round(mr_kq5_pq1, 2)) %>%
+  select("School_Name" = school_name,
+         "State" = state,
+         "Highest_Degree_Offered" = highest_degree,
+         "Location_Type" = urban,
+         "School_Size" = school_size,
+         "Longitude" = longitude,
+         "Latitude" = latitude,
+         "Religious_Affiliation" = rel_affil,
+         "NCAA_Member" = NCAA_member,
+         "In_State_Tuition" = in_state_tuition,
+         "Out_of_State_Tuition" = out_state_tuition,
+         "Total_Enrollment" = total_enrolled,
+         "Retention_Rate" = retention_rate,
+         "Student_Faculty_Ratio" = student_faculty_ratio,
+         "Percent_of_Students_from_Out_of_State" = percent_out_state,
+         "Male_Graduation_Rate" = gr_prop_male,
+         "Female_Graduation_Rate" = gr_prop_fem,
+         "Acceptance_Rate" = prop_admit,
+         "Percent_Students_on_Financial_Aid" = pct_fin_aid,
+         "Average_Financial_Aid_Awarded" = avg_fin_aid,
+         "ACT_25th_Percentile" = act_25,
+         "ACT_75th_Percentile" = act_75,
+         "Total_Number_of_Degree_Programs_Offered" = total_programs,
+         "Total_Number_of_Associates_Degree_Programs_Offered" = total_assoc,
+         "Total_Number_of_Bachelors_Degree_Programs_Offered" = total_bachelor,
+         "Total_Number_of_Masters_Degree_Programs_Offered" = total_masters,
+         "Total_Number_of_Doctorate_Degree_Programs_Offered" = total_masters,
+         "School_Type" = control,
+         "Carnegie_Classification" = carnegie,
+         "Proportion_Male_Students" = prop_male,
+         "Proportion_Female_Students" = prop_female,
+         "Proportion_Native_American_Students" = prop_native,
+         "Proportion_Asian_Students" = prop_asian,
+         "Proportion_Black_Students" = prop_black,
+         "Proportion_Hispanic_Students" = prop_hispanic,
+         "Proportion_Pacific_Islander_Students" = prop_pacific,
+         "Proportion_Mixed_Students" = prop_mixed,
+         "Proportion_White_Students" = prop_white,
+         "Median_Parent_Household_Income" = par_median,
+         "Fraction_of_Parents_in_the_Bottom_20_Percent" = par_q1,
+         "Fraction_of_Parents_in_the_Top_1_Percent" = par_top1pc,
+         "Percent_Students_Moving_from_Bottom_20_Percent_to_Top_20_Percent" = mr_kq5_pq1) %>%
+  mutate("No_Selection" = 1)
+
+# Reorder some of the factor variables so that mapping color to them is easier
+colleges_shiny$Highest_Degree_Offered <- fct_relevel(colleges_shiny$Highest_Degree_Offered,
+                                                     c("Lower than Bachelor's", 
+                                                     "Bachelor's or Post baccalaureate",
+                                                     "Master's or Post master's", 
+                                                     "Doctorate"))
+
+colleges_shiny$Location_Type <- fct_relevel(colleges_shiny$Location_Type,
+                                            c("Rural Area", "Town",
+                                              "Suburb", "City"))
+
+colleges_shiny$School_Size <- fct_relevel(colleges_shiny$School_Size,
+                                            c("Under 1,000", "1,000 - 4,999",
+                                              "5,000 - 9,999", "10,000 - 19,999",
+                                              "20,000 and above"))
+
+
+save(colleges_shiny, file = "shiny/colleges_shiny.Rda")

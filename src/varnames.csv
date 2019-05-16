@@ -1,0 +1,67 @@
+super_survey,subsurvey,lower_varname,var_meaning,var_plain_english
+Institutional Characteristics,HD2016,opeid,Institution (entity) name,Institution name
+Institutional Characteristics,HD2016,carnegie,Institution (entity) name,Institution name
+Institutional Characteristics,HD2016,control,Institution (entity) name,Institution name
+Institutional Characteristics,HD2016,instnm,Institution (entity) name,Institution name
+Institutional Characteristics,HD2016,stabbr,State abbreviation,State abbreviation
+Institutional Characteristics,HD2016,hloffer,Highest level of offering,Highest level of offering
+Institutional Characteristics,HD2016,locale,Degree of urbanization (Urban-centric locale),Degree of urbanization
+Institutional Characteristics,HD2016,instsize,Institution size category,Institution size category
+Institutional Characteristics,HD2016,longitud,Longitude location of institution,Longitude location of institution
+Institutional Characteristics,HD2016,latitude,Latitude location of institution,Latitude location of institution
+Institutional Characteristics,IC2016,relaffil,Religious affiliation,Religious affiliation
+Institutional Characteristics,IC2016,ft_ug,Full-time undergraduate students are enrolled,Number of full-time undergraduate students
+Institutional Characteristics,IC2016,ftgdnidp,Full-time graduate (not including doctor's professional practice) students are enrolled,Full-time graduate students enrolled
+Institutional Characteristics,IC2016,pt_ug,Part-time undergraduate students are enrolled,Number part-time undergraduate students enrolled
+Institutional Characteristics,IC2016,ptgdnidp,Part-time graduate (not including doctor's professional practice) students are enrolled,Number part-time graduate students enrolled
+Institutional Characteristics,IC2016,roomcap,Total dormitory capacity,Total dormitory capacity
+Institutional Characteristics,IC2016,rmbrdamt,Combined charge for room and board,Combined charge for room and board
+Institutional Characteristics,IC2016,athassoc,Member of National Athletic Association,Member of National Athletic Association
+Institutional Characteristics,IC2016,assoc1,Member of National Collegiate Athletic Association (NCAA),Member of NCAA
+Institutional Characteristics,IC2016_AY,tuition2,In-state average tuition for full-time undergraduates,In-state tuition for full-time undergraduates
+Institutional Characteristics,IC2016_AY,tuition3,Out-of-state average tuition for full-time undergraduates,Out-of-state tuition for full-time undergraduates
+Fall Enrollment,EF2016A,eftotlt,Grand total,Grand total
+Fall Enrollment,EF2016A,eftotlm,Grand total men,Grand total men
+Fall Enrollment,EF2016A,eftotlw,Grand total women,Grand total women
+Fall Enrollment,EF2016A,efaiant,American Indian or Alaska Native total,American Indian or Alaska Native total
+Fall Enrollment,EF2016A,efasiat,Asian total,Asian total
+Fall Enrollment,EF2016A,efbkaat,Black or African American total,Black or African American total
+Fall Enrollment,EF2016A,efhispt,Hispanic total,Hispanic total
+Fall Enrollment,EF2016A,efnhpit,Native Hawaiian or Other Pacific Islander total,Native Hawaiian or Other Pacific Islander total
+Fall Enrollment,EF2016A,efwhitt,White total,White total
+Fall Enrollment,EF2016A,ef2mort,Two or more races total,Two or more races total
+Fall Enrollment,EF2016A,efnralt,Nonresident alien total,Nonresident alien total
+Fall Enrollment,EF2016D,ret_pcf,"Full-time retention rate, 2016","Full-time retention rate, 2016"
+Fall Enrollment,EF2016D,stufacr,Student-to-faculty ratio,Student-to-faculty ratio
+Fall Staff,S2016_SIS,facstat,faculty status and tenure status,category of faculty (all or tenure or tenure track etc); 0 = total staff
+Fall Staff,S2016_SIS,sistotl,All ranks,Total number of faculty
+Fall Staff,S2016_SIS,sisprof,Professors,Total number of professors
+Fall Staff,S2016_SIS,sisascp,Associate professors,Total number of associate professors
+Fall Staff,S2016_SIS,sisastp,Assistant professors,Total number of assistant professors
+Fall Staff,S2016_SIS,sisinst,Instructors,Total number of instructors
+Fall Staff,S2016_SIS,sislect,Lecturers,Total number of lecturers
+Student Financial Aid and Net Price,SFA1516,scfa13p,Percentage of students in fall cohort who are paying out-of-state tuition rates,Percentage of students in fall cohort who are paying out-of-state tuition rates
+Student Financial Aid and Net Price,SFA1516,scfy2,Total number of undergraduates - full-year cohort,Total number of undergraduates - full-year cohort
+Student Financial Aid and Net Price,SFA1516,scfy1n,Number of students in full-year cohort,Number of students in full-year cohort
+Student Financial Aid and Net Price,SFA1516,scfy1p,Students in full-year cohort as a percentage of all undergraduates,NA
+Student Financial Aid and Net Price,SFA1516,uagrntp,"Percent of undergraduate students awarded federal, state, local, institutional or other sources of grant aid",NA
+Student Financial Aid and Net Price,SFA1516,uagrnta,"Average amount of federal, state, local, institutional or other sources of grant aid awarded to undergraduate students",NA
+Graduation Rates,GR2016,grtype,Cohort data,Type of school
+Graduation Rates,GR2016,chrtstat,Graduation rate status in cohort,how they got the degree
+Graduation Rates,GR2016,section,Section of survey form,Section of survey form
+Graduation Rates,GR2016,cohort,Cohort,Type of degree
+Graduation Rates,GR2016,line,Original line number of survey form,Original line number of survey form
+Graduation Rates,GR2016,grtotlt,Grand total,Graduation rate
+Graduation Rates,GR2016,grtotlm,Total men,Total men
+Graduation Rates,GR2016,grtotlw,Total women,Total women
+Admission and Test Scores,ADM2016,applcn,Applicants total,Total number of applicants
+Admission and Test Scores,ADM2016,admssn,Admissions total,Total number of admitted students
+Admission and Test Scores,ADM2016,enrlt,Enrolled total,Total number of enrolled first-year students
+Admission and Test Scores,ADM2016,actcm25,ACT Composite 25th percentile score,25th percentile ACT score
+Admission and Test Scores,ADM2016,actcm75,ACT Composite 75th percentile score,25th percentile ACT score
+Completion,C2016DEP,ptotal,Number of programs offered,Number of programs offered
+Completion,C2016DEP,passoc,Number of Associate's degree programs offered,Number of Associate's degree programs offered
+Completion,C2016DEP,pbachl,Number of Bachelor's degree programs offered,Number of Bachelor's degree programs offered
+Completion,C2016DEP,pmastr,Number of Master's degree programs offered,Number of Master's degree programs offered
+Completion,C2016DEP,pdocrs,Number of Doctor's degree-research/scholarship programs offered,Number of Doctor's degree-research/scholarship programs offered
+Completion,C2016DEP,pdocpp,Number of Doctor's degree-professional practice programs offered,Number of Doctor's degree-professional practice programs offered
